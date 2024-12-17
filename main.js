@@ -9,6 +9,8 @@ const addBookBtn = document.querySelector('#addBookBtn');
 const addBookDialog = document.querySelector('#addBookDialog');
 const bookForm = document.querySelector('#bookAdd');
 const closeDialogBtn = document.querySelector('#close');
+const resetBtn = document.querySelector('#reset');
+const confirmBtn = document.querySelector('#confirmBtn');
 
 // ---|| Handler Functions ||---
 function Book(title, author, pages, shelf, date) {
@@ -49,11 +51,15 @@ bookForm.addEventListener('submit', (e) => {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
-    const shelf = document.querySelector('#read').checked ? 'read' : 'tbr';
-    const date = new Date().toLocaleString('en-AU', { month: 'short', year: 'numeric' });
+    const shelf = document.querySelector('input[name="shelf"]:checked').value;
+    const date = shelf === 'read' ? document.querySelector('#date').value : ''; 
 
     addBookToLibrary(title, author, pages, shelf, date);
     
     bookForm.reset();
     addBookDialog.close();
+});
+
+resetBtn.addEventListener('click', () => {
+    bookForm.reset();
 });
