@@ -1,20 +1,59 @@
+// ---|| Global Variables ||---
 const myLibrary = [];
 
-function Book(title, author, pages, shelf) {
+// ---|| DOM Elements ||---
+const shelfContainer = document.querySelector('.shelf-container');
+const shelfTbr = document.querySelector('#tbr')
+const shelfRead = document.querySelector('#read')
+const addBookBtn = document.querySelector('#addBookBtn');
+const addBookDialog = document.querySelector('#addBookDialog');
+const bookForm = document.querySelector('#bookAdd');
+const closeDialogBtn = document.querySelector('#close');
+
+// ---|| Handler Functions ||---
+function Book(title, author, pages, shelf, date) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.shelf = shelf;
+    this.date = date
     this.sayBook = function() {
         return `${title}, ${author}, ${pages}, ${shelf}`;
     }
 };
 
-function addBookToLibrary() {
-    
+function addBookToLibrary(title, author, pages, shelf, date) {
+    if (!myLibrary.some(book => book.title === title)) {
+        const newBook = new Book(title, author, pages, shelf, date);
+        myLibrary.push(newBook);
+    }
+    else {
+        return alert('Book already shelved!')
+    }
 }
-const dune = new Book('Dune', 'Frank Herbert', 658, 'Read')
 
-console.log(dune.sayBook());
+addBookToLibrary('Superintelligence: Paths, Dangers, Strategies', 'Nick Bostrom', 352, 'Read', 'Feb-2020');
 
-Object.getPrototypeOf(dune) === Book.prototype;
+// ---|| Event Listeners ||---
+addBookBtn.addEventListener('click', () => {
+    addBookDialog.showModal();
+});
+
+closeDialogBtn.addEventListener('click', () => {
+    addBookDialog.close();
+});
+
+bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();  // Prevent actual form submission
+    
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const shelf = document.querySelector('#read').checked ? 'read' : 'tbr';
+    const date = new Date().toLocaleString('en-AU', { month: 'short', year: 'numeric' });
+
+    addBookToLibrary(title, author, pages, shelf, date);
+    
+    bookForm.reset();
+    addBookDialog.close();
+});
