@@ -1,4 +1,4 @@
-/* ---|| RESETS ||--- */
+/* #region---|| RESETS ||--- */
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -40,9 +40,8 @@
   #root, #__next {
     isolation: isolate;
   }
-
-/* ---|| FONTS ||--- */
-/* ---|| FONTS ||--- */
+/* #endregion---|| RESETS ||--- */
+/* #region---|| FONTS ||--- */
 :root {
   --font-primary: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -50,8 +49,8 @@
 * {
   font-family: var(--font-primary);
 }
-
-/* ---|| LAYOUT ||--- */
+/* #endregion ---|| FONTS ||--- */
+/* #region---|| GLOBAL ||--- */
 html, body {
     height: 100vh;
     margin: 0;
@@ -84,8 +83,8 @@ header, main, footer {
     position: relative;
     z-index: 1;
 }
-
-/* ---|| HEADER ||--- */
+/* #endregion---|| GLOBAL ||--- */
+/* #region---|| HEADER ||--- */
 header {
     font-weight: 300;
     color: white;
@@ -124,8 +123,8 @@ header {
     transform: scale(1.25) rotate(-90deg);
     cursor: pointer;
   }
-
-/* ---|| NEW BOOK FORM ||--- */
+/* #endregion---|| HEADER ||--- */
+/* #region---|| NEW BOOK FORM ||--- */
 dialog {
   margin: auto;
   font-weight: 700;
@@ -248,15 +247,91 @@ button[type='reset']:hover svg {
   transform: scale(0.97);
   box-shadow: 3px 3px 40px black;
 }
-
-/* ---|| CONTENT||--- */
+/* #endregion---|| NEW BOOK FORM ||--- */
+/* #region---|| CONTENT||--- */
 main {
   display: grid;
   font-weight: 300;
   color: whitesmoke;
 }
 
-/* ---|| FOOTER ||--- */
+.shelf-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.book-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem 2.5rem;
+  text-align: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 10px hsla(0, 0%, 0%, 0.4);
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  border-bottom-left-radius: 50%;
+  border: 7px solid transparent;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  background-image: url('assets/delete.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: -1px 1px 5px gray;
+}
+
+.deleteBtn:hover {
+  background-color: lightcoral;
+  background-image: url('assets/delete-empty.svg');
+}
+
+.read-toggle {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(assets/eye-off.svg);
+  background-color: lightcoral;
+  border-top-right-radius: 50%;
+  border: 7px solid transparent;
+  box-shadow: 1px -1px 5px gray;
+}
+
+input[type='checkbox']:checked + .read-toggle {
+  background-image: url(assets/eye-check-outline.svg);
+  background-color: lightgreen;
+  border-top-right-radius: 50%;
+  border: 7px solid transparent;
+}
+
+input[type='checkbox'] + .read-toggle:hover,
+input[type='checkbox']:checked + .read-toggle:hover {
+  background-image: url(assets/eye-white.svg);
+  border-top-right-radius: 50%;
+  border: 7px solid transparent;
+}
+
+/* #endregion---|| CONTENT||--- */
+/* #region---|| FOOTER ||--- */
 footer {
     font-weight: 400;
     color: white;
@@ -278,3 +353,4 @@ footer a {
 footer a:hover {
     color: black; 
 }
+/* #endregion---|| FOOTER ||--- */

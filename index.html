@@ -13,12 +13,12 @@
 <body>
     <div class="wrapper">
     </div>
-    <!-- ---|| HEADER ||--- -->
+    <!-- #region---|| HEADER ||--- -->
     <header>
         <div class="header-svg-container1">
             <img src="./assets/bookshelf.svg" class="bookshelf-svg" alt="Books">
         </div>
-        <h1>Giles Davis' 2025 Sci-Fi</h1>
+        <h1>Giles Davis' 2025 Book Tracker</h1>
         <div class="header-svg-container2">
             <img src="./assets/bookshelf.svg" class="bookshelf-svg" alt="Books">
         </div>
@@ -29,15 +29,16 @@
             </svg>
         </button>
     </header>
-
-    <!-- ---|| CONTENT ||--- -->
+    <!-- #endregion---|| HEADER ||--- -->
+    <!-- #region---|| CONTENT ||--- -->
     <main>
         <div class="shelf-container">
+            <div class="bookshelf" id="currently-reading">
+                Currently Reading
+            </div>
             <div class="bookshelf" id="tbr">
-                TBR
             </div>
             <div class="bookshelf" id="read">
-                Read
             </div>
             <dialog id="addBookDialog">
                 <form action="" method="post" id="bookAdd">
@@ -83,6 +84,14 @@
                                     checked>
                             </div>
                             <div class="radio" required>
+                                <label for="currently-reading">Currently Reading:</label>
+                                <input 
+                                    type="radio" 
+                                    id="currently-reading" 
+                                    name="shelf" 
+                                    value="currently-reading">
+                            </div>
+                            <div class="radio" required>
                                 <label for="read">Read</label>
                                 <input 
                                     type="radio" 
@@ -126,10 +135,11 @@
             <div class="bookshelf" id="december">December</div> -->
         </div> 
     </main>
-
-    <!-- ---|| FOOTER ||--- -->
+    <!-- #endregion---|| CONTENT ||--- -->
+    <!-- #region---|| FOOTER ||--- -->
     <footer>
         <p class="footer-text">Copyright &copy; <a href="https://github.com/giles-davis">Giles Davis Productions</a> 2024</p>
     </footer>
+    <!-- #endregion---|| FOOTER ||--- -->
 </body>
 </html>
