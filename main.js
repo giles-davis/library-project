@@ -71,14 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
         cardRead.type = 'checkbox';
         cardRead.name = 'read';
         cardRead.id = `card-read-${index}`;
-        cardRead.checked = book.shelf === 'read';
-        cardRead.style.display = 'none'; // Hide the checkbox
+        cardRead.style.display = 'none';
+
+        // Set checkbox state based on shelf
+        switch(book.shelf) {
+            case 'read':
+                cardRead.checked = true;
+                break;
+            case 'currently-reading':
+                cardRead.classList.add('currently-reading');
+                break;
+        }
+
         card.appendChild(cardRead);
 
         // Create read toggle label
         const cardReadLabel = document.createElement('label');
         cardReadLabel.htmlFor = `card-read-${index}`;
         cardReadLabel.classList.add('read-toggle');
+
+        // Add the current shelf state as a class to the label (optional, for additional styling control)
+        cardReadLabel.classList.add(`shelf-${book.shelf}`);
+
         card.appendChild(cardReadLabel);
 
         // Create delete button
@@ -89,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.appendChild(deleteBtn);
 
         return card;
-    }
+    };
 
     // display library
     function displayLibrary() {
@@ -113,12 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
             }
         });
-    }
+    };
     
 
     displayLibrary();
 
 
+    
     // ---|| Event Listeners ||---
     addBookBtn.addEventListener('click', () => {
         addBookDialog.showModal();
@@ -176,6 +191,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 });
-    
 
 

@@ -257,9 +257,56 @@ main {
 
 .shelf-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-rows: auto auto auto;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bookshelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 2px solid #ccc;
+  min-height: 400px;  /* Adjust this value based on your card height + padding */
+  /* Optional: visual feedback for empty shelves */
+  background-color: rgba(0,0,0,0.02);
+}
+
+/* Optional: Add a message for empty shelves */
+.bookshelf:empty::before {
+  content: "No books on this shelf";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #999;
+  font-style: italic;
+}
+
+
+/* background colors for each shelf */ 
+#currently-reading {
+  /* background-color: rgba(30, 144, 255, 0.1); Light blue */
+}
+
+#tbr {
+  /* background-color: rgba(240, 128, 128, 0.1); Light coral */
+}
+
+#read {
+  /* background-color: rgba(144, 238, 144, 0.1); Light green */
+}
+
+/* For the book cards within each shelf */
+.book-card {
+  /* Your existing book-card styles */
+  margin: 0.5rem;
 }
 
 .book-card {
@@ -268,15 +315,32 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem 1rem 2.5rem;
-  text-align: center;
-  border-radius: 1rem;
-  overflow: hidden;
-  overflow-wrap: anywhere;
+  min-width: 200px;  /* Set a minimum width */
+  width: 200px;      /* Set a fixed width */
+  height: 300px;     /* Set a fixed height */
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  box-shadow: 1px 1px 10px hsla(0, 0%, 0%, 0.4);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* Prevent content from overflowing */
+  overflow: hidden;
+}
+
+/* If you want the text content to be handled nicely */
+.book-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  /* Prevent long titles from breaking layout */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-card p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
 }
 
 .deleteBtn {
@@ -300,6 +364,7 @@ main {
   background-image: url('assets/delete-empty.svg');
 }
 
+/* Base state (TBR) */
 .read-toggle {
   position: absolute;
   bottom: 0px;
@@ -316,23 +381,42 @@ main {
   box-shadow: 1px -1px 5px gray;
 }
 
+/* Read state */
 input[type='checkbox']:checked + .read-toggle {
   background-image: url(assets/eye-check-outline.svg);
   background-color: lightgreen;
-  border-top-right-radius: 50%;
-  border: 7px solid transparent;
 }
 
-input[type='checkbox'] + .read-toggle:hover,
-input[type='checkbox']:checked + .read-toggle:hover {
+/* Currently Reading state */
+input[type='checkbox'].currently-reading + .read-toggle {
   background-image: url(assets/eye-white.svg);
-  border-top-right-radius: 50%;
-  border: 7px solid transparent;
+  background-color: dodgerblue;
 }
 
+/* Hover states */
+.read-toggle:hover {
+  background-image: url(assets/eye-white.svg);
+}
+
+.bookshelf {
+
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bookshelf {
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 /* #endregion---|| CONTENT||--- */
 /* #region---|| FOOTER ||--- */
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
     font-weight: 400;
     color: white;
     min-height: 40px;
