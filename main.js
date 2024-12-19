@@ -1,8 +1,24 @@
 // ---|| Global Variables ||---
 let myLibrary = [
-    { title: 'Dune', author: 'Frank Herbert', pages: 652, shelf: 'read' },
+    { title: 'Dune', author: 'Frank Herbert', pages: 652, shelf: 'read', date: 'Jun-2022'},
     { title: 'Darkome', author: 'Hannu Rajaniemi', pages: 256, shelf: 'currently-reading' },
-    { title: 'The Inverted World', author: 'Christopher Priest', pages: 239, shelf: 'tbr' }
+    { title: 'The Inverted World', author: 'Christopher Priest', pages: 239, shelf: 'tbr' },
+    { title: 'Oceanic', author: 'Greg Egan', pages: 496, shelf: 'currently-reading' },
+    { title: 'Dark Age', author: 'Pierce Brown', pages: 704, shelf: 'currently-reading' },
+    { title: 'The Trials', author: 'Linda Nagata', pages: 481, shelf: 'read', date: 'Dec-2024'},
+    { title: 'The Space Between Us', author: 'Doug Johnstone', pages: 276, shelf: 'tbr' },
+    { title: 'Summerland', author: 'Hannu Rajaniemi', pages: 320, shelf: 'tbr' },
+    { title: 'Quantum of Nightmares', author: 'Charles Stross', pages: 368, shelf: 'tbr' },
+    { title: 'A Maze of Death', author: 'Philip K. Dick', pages: 192, shelf: 'tbr' },
+    { title: 'Elder Race', author: 'Adrian Tchaikovsky', pages: 201, shelf: 'tbr' },
+    { title: 'Salt', author: 'Adam Roberts', pages: 248, shelf: 'tbr' },
+    { title: 'The Man Who Fell to Earth', author: 'Walter Tevis', pages: 209, shelf: 'tbr' },
+    { title: 'Touch', author: 'Claire North', pages: 426, shelf: 'tbr' },
+    { title: 'Perdido Street Station', author: 'China Mieville', pages: 710, shelf: 'tbr' },
+    { title: 'Klara and the Sun', author: 'Kazuo Ishiguro', pages: 303, shelf: 'tbr' },
+    { title: 'Bete', author: 'Adam Roberts', pages: 312, shelf: 'tbr' },
+    { title: 'The Expert System\'s Brother', author: 'Adrian Tchaikovsky', pages: 167, shelf: 'tbr' },
+    { title: 'The Tusks of Extinction', author: 'Ray Nayler', pages: 192, shelf: 'tbr' },
   ];
 
 document.addEventListener('DOMContentLoaded', () => {

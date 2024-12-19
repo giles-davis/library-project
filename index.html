@@ -18,7 +18,7 @@
         <div class="header-svg-container1">
             <img src="./assets/bookshelf.svg" class="bookshelf-svg" alt="Books">
         </div>
-        <h1>Giles Davis' 2025 Book Tracker</h1>
+        <h1>Giles Davis' Monthly Book Tracker</h1>
         <div class="header-svg-container2">
             <img src="./assets/bookshelf.svg" class="bookshelf-svg" alt="Books">
         </div>
@@ -33,13 +33,29 @@
     <!-- #region---|| CONTENT ||--- -->
     <main>
         <div class="shelf-container">
-            <div class="bookshelf" id="currently-reading">
-                Currently Reading
+            <div class="shelf-container">
+                <div class="shelf-section">
+                    <h2 class="shelf-header">Currently Reading</h2>
+                    <div class="bookshelf" id="currently-reading">
+                        <!-- Books go here -->
+                    </div>
+                </div>
+                
+                <div class="shelf-section">
+                    <h2 class="shelf-header">To Be Read</h2>
+                    <div class="bookshelf" id="tbr">
+                        <!-- Books go here -->
+                    </div>
+                </div>
+                
+                <div class="shelf-section">
+                    <h2 class="shelf-header">Read</h2>
+                    <div class="bookshelf" id="read">
+                        <!-- Books go here -->
+                    </div>
+                </div>
             </div>
-            <div class="bookshelf" id="tbr">
-            </div>
-            <div class="bookshelf" id="read">
-            </div>
+            <!-- ---|| NEW BOOK FORM ||--- -->
             <dialog id="addBookDialog">
                 <form action="" method="post" id="bookAdd">
                   <div class="popup">
