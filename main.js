@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('book-card');
         card.setAttribute('data-index', index);
 
-        // Add the main book info
+        // add the main book info
         const shelfNames = {
             'currently-reading': 'Currently Reading',
             'tbr': 'TBR',
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardRead.id = `card-read-${index}`;
         cardRead.style.display = 'none';
 
-        // Set checkbox state based on shelf
+        // set checkbox state based on shelf
         switch(book.shelf) {
             case 'read':
                 cardRead.checked = true;
@@ -101,17 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.appendChild(cardRead);
 
-        // Create read toggle label
+        // create read toggle label
         const cardReadLabel = document.createElement('label');
         cardReadLabel.htmlFor = `card-read-${index}`;
         cardReadLabel.classList.add('read-toggle');
 
-        // Add the current shelf state as a class to the label (optional, for additional styling control)
+        // add the current shelf state as a class to the label (optional, for additional styling control)
         cardReadLabel.classList.add(`shelf-${book.shelf}`);
 
         card.appendChild(cardReadLabel);
 
-        // Create delete button
+        // create delete button
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('deleteBtn');
         deleteBtn.setAttribute('data-index', index);
@@ -123,12 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // display library
     function displayLibrary() {
-        // Clear existing display/shelves
+        // clear existing display/shelves
         shelfCurrentlyReading.innerHTML = '';
         shelfTbr.innerHTML = '';
         shelfRead.innerHTML = '';
         
-        // Loop through library array and sort books to correct shelves
+        // sort books to correct shelves
         myLibrary.forEach((book, index) => {
             const card = createBookCard(book, index);
             switch(book.shelf) {
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form data
+        // get form data
         const formData = new FormData(e.target);
         const title = formData.get('title');
         const author = formData.get('author');
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         addBookToLibrary(title, author, pages, shelf, date);
         
-        // Clear all inputs manually
+        // clear all inputs manually
         e.target.querySelectorAll('input').forEach(input => {
             if (input.type === 'radio') {
                 input.checked = input.defaultChecked;
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = e.target.parentElement.getAttribute('data-index');
             const book = myLibrary[index];
             
-            // Cycle through states
+            // cycle through states
             switch(book.shelf) {
                 case 'tbr':
                     book.shelf = 'currently-reading';

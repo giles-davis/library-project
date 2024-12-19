@@ -288,11 +288,10 @@ main {
   justify-content: center;
   margin: 0;
   border-bottom: 2px solid #ccc;
-  min-height: 310px;  /* Adjust this value based on your card height + padding */
+  min-height: 310px;  /* adjust value based on card height + padding */
   background-color: rgba(0,0,0,0.02);
 }
 
-/* Optional: Add a message for empty shelves */
 .bookshelf:empty::before {
   content: "No books on this shelf";
   display: flex;
@@ -304,55 +303,58 @@ main {
   font-style: italic;
 }
 
-
-/* background colors for each shelf */ 
 #currently-reading {
-  /* background-color: rgba(30, 144, 255, 0.1); Light blue */
+  /* background-color: rgba(30, 144, 255, 0.1); blue */
 }
 
 #tbr {
-  /* background-color: rgba(240, 128, 128, 0.1); Light coral */
+  /* background-color: rgba(240, 128, 128, 0.1); coral */
 }
 
 #read {
-  /* background-color: rgba(144, 238, 144, 0.1); Light green */
+  /* background-color: rgba(144, 238, 144, 0.1); green */
 }
 
-/* For the book cards within each shelf */
+/* book cards within each shelf */
 .book-card {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 200px;  /* Set a minimum width */
-  width: 200px;      /* Set a fixed width */
-  height: 275px;     /* Set a fixed height */
+  min-width: 200px;
+  width: 200px;      
+  height: 275px;     
   padding: 1rem;
   margin: 1rem;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  /* Prevent content from overflowing */
   overflow: hidden;
 }
 
 /* card text content */
 .book-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
   margin-bottom: 0.5rem;
+  padding: 0.2rem;
   white-space: normal;
   text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 3; 
   -webkit-box-orient: vertical;
+  background-color: rgba(0,0,0,0.2);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .book-card p {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 450;
+  text-align: center;
   margin: 0.3rem 0;
 }
 
@@ -377,7 +379,7 @@ main {
   background-image: url('assets/delete-empty.svg');
 }
 
-/* Base state (TBR) */
+/* base state (TBR) */
 .read-toggle {
   position: absolute;
   bottom: 0px;
@@ -394,19 +396,19 @@ main {
   box-shadow: 1px -1px 5px gray;
 }
 
-/* Read state */
+/* read state */
 input[type='checkbox']:checked + .read-toggle {
   background-image: url(assets/eye-check-outline.svg);
   background-color: lightgreen;
 }
 
-/* Currently Reading state */
+/* currently Reading state */
 input[type='checkbox'].currently-reading + .read-toggle {
   background-image: url(assets/eye-white.svg);
   background-color: dodgerblue;
 }
 
-/* Hover states */
+/* hover states */
 .read-toggle:hover {
   background-image: url(assets/eye-white.svg);
 }
