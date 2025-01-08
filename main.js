@@ -1,25 +1,72 @@
 // ---|| Global Variables ||---
+
+// ---|| Define Classes ||---
+class Book {
+    constructor(title, author, pages, shelf, date) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.shelf = shelf;
+        this.date = date;
+        this.isSeries = false;
+    }
+};
+
+class Series extends Book {
+    constructor(title, author, pages, shelf, date, seriesName, seriesNumber) {
+        super(title, author, pages, shelf, date)
+        this.isSeries = true;
+        this.seriesName = seriesName;
+        this.bookNumber = seriesNumber;
+    }
+    
+    getFullTitle() {
+        return `${this.seriesName} #${this.bookNumber}: ${this.title}`;
+    }
+};
+
 let myLibrary = [
-    { title: 'Dune', author: 'Frank Herbert', pages: 652, shelf: 'read', date: 'Jun-2022'},
-    { title: 'Darkome', author: 'Hannu Rajaniemi', pages: 256, shelf: 'currently-reading' },
-    { title: 'The Inverted World', author: 'Christopher Priest', pages: 239, shelf: 'tbr' },
-    { title: 'Oceanic', author: 'Greg Egan', pages: 496, shelf: 'currently-reading' },
-    { title: 'Dark Age', author: 'Pierce Brown', pages: 704, shelf: 'currently-reading' },
-    { title: 'The Trials', author: 'Linda Nagata', pages: 481, shelf: 'read', date: 'Dec-2024'},
-    { title: 'The Space Between Us', author: 'Doug Johnstone', pages: 276, shelf: 'tbr' },
-    { title: 'Summerland', author: 'Hannu Rajaniemi', pages: 320, shelf: 'tbr' },
-    { title: 'Quantum of Nightmares', author: 'Charles Stross', pages: 368, shelf: 'tbr' },
-    { title: 'A Maze of Death', author: 'Philip K. Dick', pages: 192, shelf: 'tbr' },
-    { title: 'Elder Race', author: 'Adrian Tchaikovsky', pages: 201, shelf: 'tbr' },
-    { title: 'Salt', author: 'Adam Roberts', pages: 248, shelf: 'tbr' },
-    { title: 'The Man Who Fell to Earth', author: 'Walter Tevis', pages: 209, shelf: 'tbr' },
-    { title: 'Touch', author: 'Claire North', pages: 426, shelf: 'tbr' },
-    { title: 'Perdido Street Station', author: 'China Mieville', pages: 710, shelf: 'tbr' },
-    { title: 'Klara and the Sun', author: 'Kazuo Ishiguro', pages: 303, shelf: 'tbr' },
-    { title: 'Bete', author: 'Adam Roberts', pages: 312, shelf: 'tbr' },
-    { title: 'The Expert System\'s Brother', author: 'Adrian Tchaikovsky', pages: 167, shelf: 'tbr' },
-    { title: 'The Tusks of Extinction', author: 'Ray Nayler', pages: 192, shelf: 'tbr' },
-  ];
+    new Series('Dune', 'Frank Herbert', 652, 'read', 'Jun-2022', 'Dune', 1),
+    new Book('Darkome', 'Hannu Rajaniemi', 256, 'read', 'Dec-2024'),
+    new Book('The Inverted World', 'Christopher Priest', 239, 'tbr', ''),
+    new Book('Oceanic', 'Greg Egan', 496, 'currently-reading', ''),
+    new Series('The Trials', 'Linda Nagata', 481, 'read', 'Dec-2024', 'The Red', 2),
+    new Book('The Space Between Us', 'Doug Johnstone', 276, 'tbr', ''),
+    new Book('Summerland', 'Hannu Rajaniemi', 320, 'tbr', ''),
+    new Series('Quantum of Nightmares', 'Charles Stross', 368, 'read', 'Dec-2024', 'The Laundry Files', 11),
+    new Book('A Maze of Death', 'Philip K. Dick', 192, 'tbr', ''),
+    new Book('Elder Race', 'Adrian Tchaikovsky', 201, 'tbr', ''),
+    new Book('Salt', 'Adam Roberts', 248, 'tbr', ''),
+    new Book('The Man Who Fell to Earth', 'Walter Tevis', 209, 'tbr', ''),
+    new Book('Touch', 'Claire North', 426, 'tbr', ''),
+    new Series('Perdido Street Station', 'China Mieville', 710, 'tbr', '', 'New Cobuzon', 1),
+    new Book('Klara and the Sun', 'Kazuo Ishiguro', 303, 'read', 'Jan-2025'),
+    new Book('Bete', 'Adam Roberts', 312, 'tbr', ''),
+    new Book('The Expert System\'s Brother', 'Adrian Tchaikovsky', 167, 'tbr', ''),
+    new Book('The Tusks of Extinction', 'Ray Nayler', 192, 'tbr', ''),
+    new Series('Escape From Yokai Land', 'Charles Stross', 81, 'read', 'Jan-2025', 'The Laundry Files', 6.5),
+    new Series('Red Rising', 'Pierce Brown', 382, 'read', 'Dec-2025', 'Red Rising Saga', 1),
+    new Series('Golden Son', 'Pierce Brown', 466, 'read', 'Dec-2025', 'Red Rising Saga', 2),
+    new Series('Morning Star', 'Pierce Brown', 525, 'read', 'Dec-2025', 'Red Rising Saga', 3),
+    new Series('Iron Gold', 'Pierce Brown', 602, 'read', 'Dec-2025', 'Red Rising Saga', 4),
+    new Series('Dark Age', 'Pierce Brown', 704, 'read', 'Dec-2025', 'Red Rising Saga', 5),
+    new Series('Light Bringer', 'Pierce Brown', 682, 'read', 'Dec-2025', 'Red Rising Saga', 6),
+    new Series('Going Dark', 'Linda Nagata', 464, 'read', 'Dec-2025', 'The Red', 3),
+    new Series('The Prefect', 'Alastair Reynolds', 410, 'tbr', '', 'Prefect Dreyfus Emergency', 1),
+    new Series('Season Of Skulls', 'Charles Stross', 376, 'read', '', 'The Laundry Files', 12),
+    new Book('Pushing Ice', 'Alastair Reynolds', 458, 'read', 'Jan-2025'),
+    new Book('Gradisil', 'Adam Roberts', 551, 'tbr', ''),
+    new Book('Salvager', 'Scott Moon', 158, 'tbr', ''),
+    new Book('Nova', 'Samuel R. Delany', 241, 'tbr', ''),
+    new Series('Absolution', 'Jeff VanderMeer', 441, 'tbr', '', 'Southern Reach', 4),
+    new Series('Revenger', 'Alastair Reynolds', 425, 'currently-reading', 'Jan-2025', 'Revenger', 1),
+    new Series('Light', 'M. John Harrison', 310, 'currently-reading', '', 'Kefahuchi Tract', 1),
+    new Series('Not Till We Are Lost', 'Dennis E. Taylor', 413, 'tbr', '', 'Bobiverse', 5),
+    new Series('Blindsight', 'Peter Watts', 384, 'tbr', '', 'Firefall', 1),
+    new Series('The Colonel', 'Peter Watts', 29, 'tbr', '', 'Firefall', 1.5),
+    new Series('Echopraxia', 'Peter Watts', 384, 'tbr', '', 'Firefall', 2),
+];
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // ---|| DOM Elements ||---
@@ -35,24 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmBtn = document.querySelector('#confirmBtn');
 
     // ---|| Handler Functions ||---
-    function Book(title, author, pages, shelf, date) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.shelf = shelf;
-        this.date = date
-    };
-
-    function addBookToLibrary(title, author, pages, shelf, date) {
+    function addBookToLibrary(title, author, pages, shelf, date, seriesName = null, bookNumber = null) {
         if (!myLibrary.some(book => book.title === title)) {
-            const newBook = new Book(title, author, pages, shelf, date);
+            const newBook = seriesName 
+                ? new Series(title, author, pages, shelf, date, seriesName, bookNumber)
+                : new Book(title, author, pages, shelf, date);
             myLibrary.push(newBook);
         }
         else {
             return alert('Book already shelved!')
         }
     }
-
+    
     function removeBook(index) {
         myLibrary.splice(index, 1);
         displayLibrary();
@@ -63,26 +104,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.classList.add('book-card');
         card.setAttribute('data-index', index);
-
-        // add the main book info
+    
         const shelfNames = {
-            'currently-reading': 'Currently Reading',
+            'currently-reading': 'Reading',
             'tbr': 'TBR',
             'read': 'Read'
         };
         
-        const bookInfo = `
+        let bookInfo = `
             <h3>${book.title}</h3>
-            <p>By: ${book.author}</p>
+        `;
+    
+        // Add series information if it's a Series book
+        if (book instanceof Series) {
+            bookInfo += `<p>${book.seriesName} #${book.bookNumber}</p>`;
+        } else {
+            bookInfo += `<p>Series: N/A</p>`;
+        }
+    
+        bookInfo += `
+            <p>Author: ${book.author}</p>
             <p>Pages: ${book.pages}</p>
             <p>Shelf: ${shelfNames[book.shelf]}</p>
-            ${book.date ? `<p>Date Read: ${book.date}</p>` : ''}
+            ${book.date ? `<p>Date Read: ${book.date}</p>` : '<p>Date Read: N/A</p>'}
         `;
         
         card.innerHTML = bookInfo;
         
-
-        // Create checkbox (hidden but functional)
+        // create checkbox (hidden but functional)
         const cardRead = document.createElement('input');
         cardRead.type = 'checkbox';
         cardRead.name = 'read';
