@@ -1,0 +1,9 @@
+// ---|| DOM Elements ||---
+export const shelfContainer = document.querySelector('.shelf-container');
+export const shelfCurrentlyReading = document.querySelector('#reading');
+export const shelfTbr = document.querySelector('#tbr');
+export const shelfRead = document.querySelector('#read');
+export const closeDialogBtn = document.querySelector('#close');
+export const resetBtn = document.querySelector('#reset');
+export const confirmBtn = document.querySelector('#confirmBtn');
+export const addBookDialog = document.querySelector('#addBookDialog');

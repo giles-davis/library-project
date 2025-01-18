@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
@@ -36,7 +36,7 @@
             <div class="shelf-container">
                 <div class="shelf-section">
                     <h2 class="shelf-header">Currently Reading</h2>
-                    <div class="bookshelf" id="currently-reading">
+                    <div class="bookshelf" id="reading">
                     </div>
                 </div>
                 
@@ -97,12 +97,12 @@
                                     checked>
                             </div>
                             <div class="radio" required>
-                                <label for="currently-reading">Currently Reading:</label>
+                                <label for="reading">Currently Reading:</label>
                                 <input 
                                     type="radio" 
-                                    id="currently-reading" 
+                                    id="reading" 
                                     name="shelf" 
-                                    value="currently-reading">
+                                    value="reading">
                             </div>
                             <div class="radio" required>
                                 <label for="read">Read</label>
