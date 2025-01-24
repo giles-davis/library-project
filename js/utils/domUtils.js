@@ -20,13 +20,12 @@ export function createBookCard(book, index) {
     if (book instanceof Series) {
         bookInfo += `<p>${book.seriesName} #${book.bookNumber}</p>`;
     } else {
-        bookInfo += `<p>Series: N/A</p>`;
+        bookInfo += '';
     }
 
     bookInfo += `
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <p>Shelf: ${shelfNames[book.shelf]}</p>
         ${book.date ? `<p>Read: ${book.date}</p>` : ''}
     `;
     
