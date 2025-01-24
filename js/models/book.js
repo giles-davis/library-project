@@ -1,6 +1,5 @@
 // ---|| IMPORTS ||---
-import '../../lib/dayjs/dayjs.min.js';
-const dayjs = window.dayjs;
+import dayjs from 'dayjs';
 
 
 // ---|| Define Classes ||---

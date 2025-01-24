@@ -2,8 +2,7 @@ import { myLibrary } from '../data/library.js';
 import { displayLibrary } from '../utils/domUtils.js';
 import { addBookToLibrary } from '../utils/libraryUtils.js';
 import { closeDialogBtn, addBookDialog } from '../src/domElements.js';
-import '../../lib/dayjs/dayjs.min.js';
-const dayjs = window.dayjs;
+import dayjs from 'dayjs';
 
 
 export function setupEventListeners() {
