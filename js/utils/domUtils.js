@@ -5,6 +5,7 @@ import { shelfCurrentlyReading, shelfTbr, shelfRead } from '../src/domElements.j
 import { myLibrary } from '../data/library.js';
 import { removeBook } from '../utils/libraryUtils.js';
 
+
 // create cardDivs
 export function createBookCard(book, index) {
     const card = document.createElement('div');
@@ -26,7 +27,7 @@ export function createBookCard(book, index) {
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
         <p>Shelf: ${shelfNames[book.shelf]}</p>
-        ${book.date ? `<p>Date Read: ${book.date}</p>` : '<p>Date Read: N/A</p>'}
+        ${book.date ? `<p>Read: ${book.date}</p>` : ''}
     `;
     
     card.innerHTML = bookInfo;
@@ -72,6 +73,9 @@ export function createBookCard(book, index) {
 
 // display library
 export function displayLibrary() {
+    console.log("displayLibrary called");
+    console.log("Library contents:", myLibrary);
+
     // clear existing display/shelves
     shelfCurrentlyReading.innerHTML = '';
     shelfTbr.innerHTML = '';
@@ -79,6 +83,7 @@ export function displayLibrary() {
     
     // sort books to correct shelves
     myLibrary.forEach((book, index) => {
+        console.log("Processing book:", book);
         const card = createBookCard(book, index);
         switch(book.shelf) {
             case 'tbr':
@@ -93,3 +98,4 @@ export function displayLibrary() {
         }
     });
 };
+

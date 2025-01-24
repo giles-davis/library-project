@@ -2,6 +2,9 @@ import { myLibrary } from '../data/library.js';
 import { displayLibrary } from '../utils/domUtils.js';
 import { addBookToLibrary } from '../utils/libraryUtils.js';
 import { closeDialogBtn, addBookDialog } from '../src/domElements.js';
+import '../../lib/dayjs/dayjs.min.js';
+const dayjs = window.dayjs;
+
 
 export function setupEventListeners() {
     const addBookBtn = document.querySelector('#addBookBtn');
@@ -28,7 +31,7 @@ function handleBookSubmit(e) {
     const author = formData.get('author');
     const pages = formData.get('pages');
     const shelf = formData.get('shelf');
-    const date = shelf === 'read' ? formData.get('date') : '';
+    const date = shelf === 'read' ? dayjs(formData.get('date')).format('MMM D, YYYY') : '';
 
     addBookToLibrary(title, author, pages, shelf, date);
 

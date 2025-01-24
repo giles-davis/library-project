@@ -403,7 +403,7 @@ input[type='checkbox']:checked + .read-toggle {
 }
 
 /* currently Reading state */
-input[type='checkbox'].currently-reading + .read-toggle {
+input[type='checkbox'].reading + .read-toggle {
   background-image: url(assets/eye-white.svg);
   background-color: dodgerblue;
 }

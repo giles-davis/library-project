@@ -1,3 +1,8 @@
+// ---|| IMPORTS ||---
+import '../../lib/dayjs/dayjs.min.js';
+const dayjs = window.dayjs;
+
+
 // ---|| Define Classes ||---
 export class Book {
     constructor(title, author, pages, shelf, date) {
@@ -5,7 +10,7 @@ export class Book {
         this.author = author;
         this.pages = pages;
         this.shelf = shelf;
-        this.date = date;
+        this.date = date ? dayjs(date).format('MMM D, YYYY') : null;
         this.isSeries = false;
     }
 };
